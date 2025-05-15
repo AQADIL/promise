@@ -3,661 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZARTA - Мы достигнем всех целей!</title>
+    <title>Договор между Ақәділ и Молдияр</title>
     <style>
         :root {
-            --purple-dark: #0F0117;
-            --purple-medium: #2D0A3F;
-            --purple-light: #5E2B8C;
-            --purple-neon: #C724F5;
-            --neon-glow: 0 0 10px #C724F5, 0 0 20px #C724F5, 0 0 30px rgba(199, 36, 245, 0.5);
-            --text-light: #F0E6FF;
-            --text-glow: rgba(199, 36, 245, 0.7);
+            --dark-purple: #1a0033;
+            --medium-purple: #3d1a66;
+            --light-purple: #6a359c;
+            --neon-purple: #c724f5;
+            --text-color: #f0e6ff;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
+
         body {
-            background: linear-gradient(135deg, var(--purple-dark), var(--purple-medium));
-            color: var(--text-light);
-            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--dark-purple), var(--medium-purple));
+            color: var(--text-color);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
             line-height: 1.6;
         }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-            overflow: hidden;
-            background: 
-                radial-gradient(circle at 80% 20%, rgba(199, 36, 245, 0.15) 0%, transparent 30%),
-                linear-gradient(to bottom, var(--purple-dark), var(--purple-medium));
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(26, 0, 51, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--light-purple);
         }
-        
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-            position: relative;
-        }
-        
+
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, #fff, var(--purple-neon));
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #fff, var(--neon-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.2;
-            text-shadow: 0 0 10px rgba(199, 36, 245, 0.3);
-            animation: fadeIn 1.5s ease-in-out;
         }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 0.5s forwards;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, var(--purple-neon), #9C27B0);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--neon-glow);
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 1s forwards;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-            z-index: -1;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px var(--purple-neon);
-        }
-        
-        .cta-button:hover::before {
-            left: 100%;
-        }
-        
+
         .team-photos {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40%;
-            max-width: 500px;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 1.5s forwards;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
         }
-        
+
+        .team-member {
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+        }
+
         .team-photo {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: var(--neon-glow);
-            border: 2px solid var(--purple-neon);
-            transition: transform 0.3s ease;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--neon-purple);
+            box-shadow: 0 0 20px var(--neon-purple);
+            transition: transform 0.3s;
         }
-        
+
         .team-photo:hover {
             transform: scale(1.05);
         }
-        
-        /* Promises Section */
-        .promises {
-            padding: 5rem 2rem;
-            background: linear-gradient(to bottom, var(--purple-medium), var(--purple-dark));
-            position: relative;
-        }
-        
-        .promises::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23C724F5" opacity="0.03" d="M30,10L50,30L70,10L90,30L70,50L90,70L70,90L50,70L30,90L10,70L30,50L10,30L30,10Z"/></svg>');
-            background-size: 80px;
-            opacity: 0.3;
-            z-index: 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--purple-neon);
-            margin: 15px auto;
-            border-radius: 2px;
-            box-shadow: var(--neon-glow);
-        }
-        
-        .promise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .promise-card {
-            background: rgba(15, 1, 23, 0.8);
-            border: 1px solid var(--purple-light);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .promise-card:nth-child(1) { animation: fadeInUp 0.8s ease-out 0.2s forwards; }
-        .promise-card:nth-child(2) { animation: fadeInUp 0.8s ease-out 0.4s forwards; }
-        .promise-card:nth-child(3) { animation: fadeInUp 0.8s ease-out 0.6s forwards; }
-        .promise-card:nth-child(4) { animation: fadeInUp 0.8s ease-out 0.8s forwards; }
-        
-        .promise-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(199, 36, 245, 0.3);
-            border-color: var(--purple-neon);
-        }
-        
-        .promise-card h3 {
-            color: var(--purple-neon);
+
+        .team-name {
+            margin-top: 15px;
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
+            font-weight: bold;
+            color: var(--neon-purple);
         }
-        
-        .promise-card h3::before {
-            content: '✓';
-            display: inline-block;
-            margin-right: 10px;
-            color: #00E676;
-            text-shadow: 0 0 5px #00E676;
-        }
-        
-        /* Gallery Section */
-        .gallery {
-            padding: 5rem 2rem;
-            background: var(--purple-dark);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gallery::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--purple-neon) 0%, transparent 70%);
-            filter: blur(50px);
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .gallery-item {
-            position: relative;
+
+        .contract {
+            background: rgba(61, 26, 102, 0.5);
+            padding: 30px;
             border-radius: 15px;
-            overflow: hidden;
-            height: 250px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            border: 1px solid var(--purple-light);
+            margin: 40px 0;
+            border: 1px solid var(--light-purple);
         }
-        
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--neon-glow);
-            border-color: var(--purple-neon);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(15, 1, 23, 0.9), transparent);
-            padding: 1.5rem 1rem 1rem;
-        }
-        
-        .gallery-caption h3 {
-            color: var(--purple-neon);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Document Section */
-        .document {
-            padding: 5rem 2rem;
+
+        .contract h2 {
             text-align: center;
-            background: linear-gradient(to bottom, var(--purple-dark), var(--purple-medium));
+            color: var(--neon-purple);
+            margin-bottom: 20px;
+        }
+
+        .contract p {
+            margin-bottom: 15px;
+        }
+
+        .signature-area {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .signature-box {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .signature-line {
+            height: 2px;
+            background: var(--light-purple);
+            margin: 40px 0 10px;
             position: relative;
         }
-        
-        .document::before {
-            content: '';
+
+        .signature-line::after {
+            content: 'Подпись';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23C724F5" opacity="0.05" d="M20,20L80,20L80,80L20,80Z"/></svg>');
-            background-size: 60px;
-            opacity: 0.3;
-            z-index: 0;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--neon-purple);
+            font-size: 0.9rem;
         }
-        
-        .document-box {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(45, 10, 63, 0.7);
-            border: 1px solid var(--purple-light);
-            border-radius: 15px;
-            padding: 3rem;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            z-index: 1;
+
+        .date {
+            text-align: center;
+            font-style: italic;
+            margin: 30px 0;
+            color: var(--neon-purple);
         }
-        
-        .document-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(199, 36, 245, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-            z-index: -1;
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
         }
-        
-        .document-box h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--purple-neon);
-            text-shadow: 0 0 5px var(--purple-neon);
-        }
-        
-        .document-box ul {
-            text-align: left;
-            margin: 2rem 0;
-            list-style-type: none;
-        }
-        
-        .document-box li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .document-box li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--purple-neon);
-            text-shadow: 0 0 5px var(--purple-neon);
-        }
-        
-        .download-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--purple-neon);
+
+        button {
+            background: linear-gradient(45deg, var(--neon-purple), var(--light-purple));
             color: white;
-            text-decoration: none;
+            border: none;
+            padding: 12px 25px;
             border-radius: 50px;
+            font-size: 1rem;
             font-weight: bold;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            box-shadow: var(--neon-glow);
-            margin-top: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(199, 36, 245, 0.4);
         }
-        
-        .download-btn:hover {
-            background: transparent;
-            border-color: var(--purple-neon);
-            box-shadow: 0 0 25px var(--purple-neon);
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(199, 36, 245, 0.6);
         }
-        
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            text-align: center;
-            background: var(--purple-medium);
-            position: relative;
-            overflow: hidden;
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23C724F5" opacity="0.05"/></svg>');
-            background-size: 100px;
-            opacity: 0.2;
-            z-index: 0;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            border: 1px solid var(--purple-light);
-        }
-        
-        .social-links a:hover {
-            background: var(--purple-neon);
-            transform: translateY(-5px);
-            box-shadow: var(--neon-glow);
-            border-color: var(--purple-neon);
-        }
-        
-        .social-links img {
-            width: 24px;
-            height: 24px;
-        }
-        
-        .final-phrase {
-            font-size: 2rem;
-            margin-top: 2rem;
-            font-weight: bold;
-            background: linear-gradient(90deg, var(--purple-neon), #fff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 0 10px rgba(199, 36, 245, 0.5);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .team-photos {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                width: 100%;
-                max-width: 100%;
-                margin-top: 2rem;
-                flex-direction: row;
-                justify-content: center;
-            }
-            
-            .team-photo {
-                width: 45%;
-            }
-            
-            .hero {
-                flex-direction: column;
-                padding: 2rem 1rem;
-                text-align: center;
-                align-items: center;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .document-box {
-                padding: 2rem 1rem;
-            }
-            
-            .final-phrase {
-                font-size: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 428px) {
+
+        @media (max-width: 600px) {
             h1 {
                 font-size: 2rem;
             }
             
-            .promise-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .team-photos {
-                flex-direction: column;
-                align-items: center;
-            }
-            
             .team-photo {
-                width: 80%;
+                width: 150px;
+                height: 150px;
+            }
+            
+            .container {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>ZARTA - Мы достигнем всех целей!</h1>
-            <p>Завтра - ваш великий день. Мы начинаем сегодня!</p>
-            <a href="#signup" class="cta-button">Присоединиться сейчас</a>
-        </div>
+    <div class="container">
+        <h1>Договор между Ақәділ и Молдияр</h1>
+        
         <div class="team-photos">
-            <img src="1.png" alt="Акәділ" class="team-photo">
-            <img src="2.png" alt="Молдияр" class="team-photo">
-        </div>
-    </section>
-    
-    <!-- Promises Section -->
-    <section class="promises">
-        <h2 class="section-title">Наши обещания</h2>
-        <div class="promise-grid">
-            <div class="promise-card">
-                <h3>Полностью развить ТАРИХСТАН</h3>
-                <p>Полная база материалов по истории, учебные пособия и база данных.</p>
+            <div class="team-member">
+                <img src="akadil.jpg" alt="Ақәділ" class="team-photo" id="akadil-photo">
+                <div class="team-name">Ақәділ</div>
             </div>
-            <div class="promise-card">
-                <h3>Курсы МС и ВЫШМАТ</h3>
-                <p>Специально подготовленные Ақәділ курсы математики высокого уровня.</p>
-            </div>
-            <div class="promise-card">
-                <h3>Квизы и AI-бот</h3>
-                <p>Бриллиантовый бот Молдияр и серия интерактивных квизов.</p>
-            </div>
-            <div class="promise-card">
-                <h3>2025 - МАШИНА</h3>
-                <p>Наша большая цель на следующий год - собственный автомобиль!</p>
+            <div class="team-member">
+                <img src="moldiyar.jpg" alt="Молдияр" class="team-photo" id="moldiyar-photo">
+                <div class="team-name">Молдияр</div>
             </div>
         </div>
-    </section>
-    
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <h2 class="section-title">Наши проекты</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400/5E2B8C/FFFFFF?text=Курс+МС+PDF" alt="Курс МС">
-                <div class="gallery-caption">
-                    <h3>Курс МС</h3>
-                    <p>Сертификационная программа</p>
+        
+        <div class="contract" id="contract">
+            <h2>Официальное соглашение</h2>
+            <p>Мы, нижеподписавшиеся Ақәділ и Молдияр, заключили настоящее соглашение о нижеследующем:</p>
+            
+            <p>1. Обязуемся совместно работать над развитием образовательных проектов.</p>
+            <p>2. Ақәділ отвечает за создание курсов по математике и анализу.</p>
+            <p>3. Молдияр отвечает за разработку интерактивных викторин и ботов.</p>
+            <p>4. Совместно работаем над проектом "Тарихстан".</p>
+            <p>5. Обязуемся достичь финансовой стабильности и приобрести автомобиль в следующем году.</p>
+            
+            <div class="signature-area">
+                <div class="signature-box">
+                    <div>Ақәділ</div>
+                    <div class="signature-line" id="akadil-signature"></div>
+                </div>
+                <div class="signature-box">
+                    <div>Молдияр</div>
+                    <div class="signature-line" id="moldiyar-signature"></div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400/5E2B8C/FFFFFF?text=AI+Бот+интерфейс" alt="AI Бот">
-                <div class="gallery-caption">
-                    <h3>AI Бот</h3>
-                    <p>Бриллиантовые решения</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400/5E2B8C/FFFFFF?text=Рабочий+процесс" alt="Рабочий процесс">
-                <div class="gallery-caption">
-                    <h3>Рабочий процесс</h3>
-                    <p>Акәділ и Молдияр в работе</p>
-                </div>
-            </div>
+            
+            <div class="date" id="current-date"></div>
         </div>
-    </section>
-    
-    <!-- Document Section -->
-    <section class="document">
-        <div class="document-box">
-            <h3>Наши официальные обязательства</h3>
-            <p>Мы к сентябрю 2024 года:</p>
-            <ul>
-                <li>Соберем 1000+ исторических материалов</li>
-                <li>Создадим 5 курсов и 20 квизов</li>
-                <li>Доведем бота до 10 000 пользователей</li>
-            </ul>
-            <a href="certificate.png" download="НашеОбещание.png" class="download-btn">Подписать обещание (PNG)</a>
-            <a href="certificate.pdf" download="НашеОбещание.pdf" class="download-btn">Подписать обещание (PDF)</a>
+        
+        <div class="buttons">
+            <button id="sign-btn">Подписать договор</button>
+            <button id="download-btn" disabled>Скачать договор</button>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://t.me/akaedil_mc" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram Акәділ"></a>
-            <a href="https://t.me/moldiyar_quiz" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram Молдияр"></a>
-        </div>
-        <p>Свяжитесь с нами: @akaedil_mc @moldiyar_quiz</p>
-        <div class="final-phrase">Завтрашний день - наш!</div>
-    </footer>
+    </div>
 
     <script>
-        // Добавляем обработчики для всех кнопок
         document.addEventListener('DOMContentLoaded', function() {
-            // Кнопка "Присоединиться сейчас"
-            const ctaButton = document.querySelector('.cta-button');
-            ctaButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Спасибо за ваш интерес! Мы скоро свяжемся с вами.');
-                // Здесь можно добавить форму подписки
+            // Установка текущей даты
+            const currentDate = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = currentDate.toLocaleDateString('ru-RU', options);
+            
+            // Элементы для подписи
+            const signBtn = document.getElementById('sign-btn');
+            const downloadBtn = document.getElementById('download-btn');
+            const akadilSignature = document.getElementById('akadil-signature');
+            const moldiyarSignature = document.getElementById('moldiyar-signature');
+            
+            // Обработчик подписания
+            signBtn.addEventListener('click', function() {
+                // Анимация подписи
+                akadilSignature.innerHTML = '<svg width="100%" height="40" viewBox="0 0 200 40"><path d="M10,20 Q50,5 90,20 T170,20" stroke="' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple') + '" stroke-width="2" fill="none"/></svg>';
+                moldiyarSignature.innerHTML = '<svg width="100%" height="40" viewBox="0 0 200 40"><path d="M10,20 Q50,35 90,20 T170,20" stroke="' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple') + '" stroke-width="2" fill="none"/></svg>';
+                
+                // Анимация фотографий
+                document.getElementById('akadil-photo').style.boxShadow = '0 0 30px ' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple');
+                document.getElementById('moldiyar-photo').style.boxShadow = '0 0 30px ' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple');
+                
+                // Активация кнопки скачивания
+                downloadBtn.disabled = false;
+                signBtn.disabled = true;
+                
+                // Добавляем текст о подписании
+                const signedText = document.createElement('p');
+                signedText.textContent = 'Договор подписан ' + currentDate.toLocaleDateString('ru-RU');
+                signedText.style.textAlign = 'center';
+                signedText.style.color = getComputedStyle(document.documentElement).getPropertyValue('--neon-purple');
+                signedText.style.marginTop = '20px';
+                document.querySelector('.contract').appendChild(signedText);
             });
             
-            // Имитация загрузки файлов при клике на кнопки
-            const downloadButtons = document.querySelectorAll('.download-btn');
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const fileName = this.getAttribute('download');
-                    alert(`Файл "${fileName}" будет загружен. Это демо-версия.`);
-                    // В реальном проекте здесь будет скачивание реального файла
-                });
+            // Обработчик скачивания
+            downloadBtn.addEventListener('click', function() {
+                // Здесь должна быть логика для скачивания
+                // В реальном проекте используйте библиотеку html2canvas или подобную
+                alert('Договор успешно подписан и будет скачан. В реальном проекте здесь будет скачивание PDF.');
+                
+                // Создаем ссылку для скачивания (в демо-версии просто сообщение)
+                const link = document.createElement('a');
+                link.href = '#';
+                link.download = 'Договор_Ақәділ_и_Молдияр_' + currentDate.toISOString().slice(0,10) + '.pdf';
+                link.click();
             });
         });
     </script>
