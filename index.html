@@ -3,34 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Договор между Ақәділ и Молдияр</title>
+    <title>Келісімшарт | Ақәділ & Молдияр</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
-            --dark-purple: #1a0033;
-            --medium-purple: #3d1a66;
-            --light-purple: #6a359c;
+            --dark-purple: #0a011a;
+            --medium-purple: #2a0a4a;
+            --light-purple: #5e2b8c;
             --neon-purple: #c724f5;
             --text-color: #f0e6ff;
+            --gold: #ffd700;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, var(--dark-purple), var(--medium-purple));
             color: var(--text-color);
-            min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             line-height: 1.6;
         }
 
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .container {
-            max-width: 900px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 1000px;
+            margin: 30px auto;
             padding: 30px;
-            background: rgba(26, 0, 51, 0.7);
+            background: rgba(26, 0, 51, 0.8);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
             border: 1px solid var(--light-purple);
         }
 
@@ -38,94 +54,145 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 30px;
-            background: linear-gradient(90deg, #fff, var(--neon-purple));
+            background: linear-gradient(90deg, var(--gold), var(--neon-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 2px 10px rgba(199, 36, 245, 0.3);
         }
 
-        .team-photos {
+        .team-section {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
             margin: 40px 0;
         }
 
         .team-member {
             text-align: center;
             flex: 1;
-            min-width: 250px;
+            min-width: 300px;
+        }
+
+        .photo-frame {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--light-purple));
+            box-shadow: 0 0 25px rgba(199, 36, 245, 0.5);
+            position: relative;
+            overflow: hidden;
         }
 
         .team-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 5px solid var(--neon-purple);
-            box-shadow: 0 0 20px var(--neon-purple);
+            border-radius: 5px;
+            border: 3px solid var(--dark-purple);
             transition: transform 0.3s;
         }
 
         .team-photo:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .team-name {
-            margin-top: 15px;
-            font-size: 1.5rem;
+            margin-top: 20px;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: var(--neon-purple);
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
-        .contract {
+        .team-role {
+            color: var(--neon-purple);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .certificate {
             background: rgba(61, 26, 102, 0.5);
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
             margin: 40px 0;
             border: 1px solid var(--light-purple);
+            position: relative;
+            overflow: hidden;
         }
 
-        .contract h2 {
+        .certificate::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(199, 36, 245, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        .certificate h2 {
             text-align: center;
-            color: var(--neon-purple);
-            margin-bottom: 20px;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
-        .contract p {
-            margin-bottom: 15px;
+        .certificate-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
         .signature-area {
             display: flex;
             justify-content: space-around;
-            margin: 40px 0;
+            margin: 60px 0 30px;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 40px;
         }
 
         .signature-box {
             flex: 1;
-            min-width: 200px;
+            min-width: 250px;
             text-align: center;
+        }
+
+        .signature-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--light-purple);
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .signature-input:focus {
+            border-bottom-color: var(--neon-purple);
         }
 
         .signature-line {
             height: 2px;
             background: var(--light-purple);
-            margin: 40px 0 10px;
+            margin: 20px 0;
             position: relative;
         }
 
-        .signature-line::after {
-            content: 'Подпись';
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
+        .signature-name {
             color: var(--neon-purple);
-            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         .date {
@@ -133,13 +200,14 @@
             font-style: italic;
             margin: 30px 0;
             color: var(--neon-purple);
+            font-size: 1.1rem;
         }
 
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 30px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
 
@@ -147,86 +215,198 @@
             background: linear-gradient(45deg, var(--neon-purple), var(--light-purple));
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(199, 36, 245, 0.4);
+            box-shadow: 0 5px 20px rgba(199, 36, 245, 0.4);
+            min-width: 200px;
+            position: relative;
+            overflow: hidden;
         }
 
         button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(199, 36, 245, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(199, 36, 245, 0.6);
         }
 
         button:disabled {
-            background: #666;
+            background: #555;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
 
-        @media (max-width: 600px) {
+        button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0) 45%, 
+                rgba(255,255,255,0.3) 48%, 
+                rgba(255,255,255,0) 52%, 
+                rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shine {
+            0% { left: -50%; }
+            20% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-family: sans-serif;
+            background-color: rgba(10, 1, 26, 0.8);
+            border-top: 1px solid var(--light-purple);
+            font-size: 0.9rem;
+        }
+
+        .copyright strong {
+            color: var(--neon-purple);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
             h1 {
                 font-size: 2rem;
             }
             
-            .team-photo {
-                width: 150px;
-                height: 150px;
+            .photo-frame {
+                width: 220px;
+                height: 220px;
             }
             
-            .container {
+            .team-name {
+                font-size: 1.5rem;
+            }
+            
+            .certificate {
                 padding: 20px;
+            }
+            
+            .certificate h2 {
+                font-size: 1.5rem;
+            }
+            
+            .buttons {
+                gap: 15px;
+            }
+            
+            button {
+                padding: 12px 20px;
+                font-size: 1rem;
+                min-width: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-frame {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .team-name {
+                font-size: 1.3rem;
+            }
+            
+            .certificate-content {
+                font-size: 1rem;
+            }
+            
+            .signature-box {
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Договор между Ақәділ и Молдияр</h1>
-        
-        <div class="team-photos">
-            <div class="team-member">
-                <img src="akadil.jpg" alt="Ақәділ" class="team-photo" id="akadil-photo">
-                <div class="team-name">Ақәділ</div>
-            </div>
-            <div class="team-member">
-                <img src="moldiyar.jpg" alt="Молдияр" class="team-photo" id="moldiyar-photo">
-                <div class="team-name">Молдияр</div>
-            </div>
-        </div>
-        
-        <div class="contract" id="contract">
-            <h2>Официальное соглашение</h2>
-            <p>Мы, нижеподписавшиеся Ақәділ и Молдияр, заключили настоящее соглашение о нижеследующем:</p>
-            
-            <p>1. Обязуемся совместно работать над развитием образовательных проектов.</p>
-            <p>2. Ақәділ отвечает за создание курсов по математике и анализу.</p>
-            <p>3. Молдияр отвечает за разработку интерактивных викторин и ботов.</p>
-            <p>4. Совместно работаем над проектом "Тарихстан".</p>
-            <p>5. Обязуемся достичь финансовой стабильности и приобрести автомобиль в следующем году.</p>
-            
-            <div class="signature-area">
-                <div class="signature-box">
-                    <div>Ақәділ</div>
-                    <div class="signature-line" id="akadil-signature"></div>
+    <div class="wrapper">
+        <div class="main">
+            <div class="container">
+                <h1>Келісімшарт | Уәде </h1>
+                
+                <div class="team-section">
+                    <div class="team-member">
+                        <div class="photo-frame">
+                            <img src="akadil.png" alt="Ақәділ" class="team-photo" id="akadil-photo">
+                        </div>
+                        <div class="team-name">Ақәділ</div>
+                        <div class="team-role">МС курс, вышмат курс</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="photo-frame">
+                            <img src="moldiyar.png" alt="Молдияр" class="team-photo" id="moldiyar-photo">
+                        </div>
+                        <div class="team-name">Молдияр</div>
+                        <div class="team-role">Тарихстан бот баска да материалдар</div>
+                    </div>
                 </div>
-                <div class="signature-box">
-                    <div>Молдияр</div>
-                    <div class="signature-line" id="moldiyar-signature"></div>
+                
+                <div class="certificate" id="certificate">
+                    <h2>Официальный Сертификат</h2>
+                    
+                    <div class="certificate-content">
+                        <p>Настоящим сертификатом удостоверяется, что Ақәділ и Молдияр вступают в официальное сотрудничество с целью:</p>
+                        
+                        <ul style="list-style-type: none; padding-left: 20px;">
+                            <li>✓ Создания образовательных курсов по математике</li>
+                            <li>✓ Разработки интерактивных викторин и ботов</li>
+                            <li>✓ Развития проекта "Тарихстан"</li>
+                            <li>✓ Достижения финансовой стабильности</li>
+                            <li>✓ Приобретения автомобиля в 2025 году (желательно)</li>
+                        </ul>
+                        
+                        <p style="text-align: center; margin-top: 30px; font-style: italic;">
+                            "Мы обязуемся поддерживать друг друга и работать вместе для достижения наших целей"
+                        </p>
+                    </div>
+                    
+                    <div class="signature-area">
+                        <div class="signature-box">
+                            <div class="signature-input" style="border: none; outline: none;">AAath</div>
+
+                            <div class="signature-line"></div>
+                            <div class="signature-name">Ақәділ</div>
+                        </div>
+                        <div class="signature-box">
+                            <input type="text" class="signature-input" id="moldiyar-signature-input" placeholder="Введите вашу подпись">
+                            <div class="signature-line"></div>
+                            <div class="signature-name">Молдияр</div>
+                        </div>
+                    </div>
+                    
+                    <div class="date" id="current-date"></div>
+                </div>
+                
+                <div class="buttons">
+                    <button id="generate-btn"></button>
+                    <button id="download-btn" disabled>Скачать сертификат (PNG)</button>
                 </div>
             </div>
-            
-            <div class="date" id="current-date"></div>
         </div>
         
-        <div class="buttons">
-            <button id="sign-btn">Подписать договор</button>
-            <button id="download-btn" disabled>Скачать договор</button>
-        </div>
+        <footer class="copyright">
+            &copy; 2025 Сделано с любовью автором: <strong>ӘЛІШ АҚӘДІЛ</strong>
+        </footer>
     </div>
 
     <script>
@@ -234,49 +414,111 @@
             // Установка текущей даты
             const currentDate = new Date();
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('current-date').textContent = currentDate.toLocaleDateString('ru-RU', options);
+            document.getElementById('current-date').textContent = 'Дата: ' + currentDate.toLocaleDateString('ru-RU', options);
             
-            // Элементы для подписи
-            const signBtn = document.getElementById('sign-btn');
+            // Элементы управления
+            const generateBtn = document.getElementById('generate-btn');
             const downloadBtn = document.getElementById('download-btn');
-            const akadilSignature = document.getElementById('akadil-signature');
-            const moldiyarSignature = document.getElementById('moldiyar-signature');
+            const moldiyarInput = document.getElementById('moldiyar-signature-input');
+            const certificate = document.getElementById('certificate');
+            
+            // Проверка заполненности подписей
+            function checkSignatures() {
+                const isFilled =  moldiyarInput.value.trim() !== '';
+                downloadBtn.disabled = !isFilled;
+            }
+            
+            // Слушатели изменений в полях ввода    
+            moldiyarInput.addEventListener('input', checkSignatures);
             
             // Обработчик подписания
-            signBtn.addEventListener('click', function() {
-                // Анимация подписи
-                akadilSignature.innerHTML = '<svg width="100%" height="40" viewBox="0 0 200 40"><path d="M10,20 Q50,5 90,20 T170,20" stroke="' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple') + '" stroke-width="2" fill="none"/></svg>';
-                moldiyarSignature.innerHTML = '<svg width="100%" height="40" viewBox="0 0 200 40"><path d="M10,20 Q50,35 90,20 T170,20" stroke="' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple') + '" stroke-width="2" fill="none"/></svg>';
+            generateBtn.addEventListener('click', function() {
+                // Добавляем подписи в сертификат
+                const akadilSignature = document.createElement('div');
+                akadilSignature.className = 'signature-name';
+                akadilInput.replaceWith(akadilSignature);
                 
-                // Анимация фотографий
-                document.getElementById('akadil-photo').style.boxShadow = '0 0 30px ' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple');
-                document.getElementById('moldiyar-photo').style.boxShadow = '0 0 30px ' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple');
+                const moldiyarSignature = document.createElement('div');
+                moldiyarSignature.className = 'signature-name';
+                moldiyarSignature.textContent = moldiyarInput.value;
+                moldiyarInput.replaceWith(moldiyarSignature);
                 
-                // Активация кнопки скачивания
+                // Активируем кнопку скачивания
                 downloadBtn.disabled = false;
-                signBtn.disabled = true;
+                generateBtn.disabled = true;
                 
-                // Добавляем текст о подписании
-                const signedText = document.createElement('p');
-                signedText.textContent = 'Договор подписан ' + currentDate.toLocaleDateString('ru-RU');
-                signedText.style.textAlign = 'center';
-                signedText.style.color = getComputedStyle(document.documentElement).getPropertyValue('--neon-purple');
-                signedText.style.marginTop = '20px';
-                document.querySelector('.contract').appendChild(signedText);
+                // Добавляем эффект к фотографиям
+                document.querySelectorAll('.photo-frame').forEach(frame => {
+                    frame.style.boxShadow = '0 0 30px ' + getComputedStyle(document.documentElement).getPropertyValue('--neon-purple');
+                });
             });
             
             // Обработчик скачивания
             downloadBtn.addEventListener('click', function() {
-                // Здесь должна быть логика для скачивания
-                // В реальном проекте используйте библиотеку html2canvas или подобную
-                alert('Договор успешно подписан и будет скачан. В реальном проекте здесь будет скачивание PDF.');
+                // Временно скрываем кнопки и футер
+                const elementsToHide = document.querySelectorAll('button, .copyright');
+                elementsToHide.forEach(el => el.style.visibility = 'hidden');
                 
-                // Создаем ссылку для скачивания (в демо-версии просто сообщение)
-                const link = document.createElement('a');
-                link.href = '#';
-                link.download = 'Договор_Ақәділ_и_Молдияр_' + currentDate.toISOString().slice(0,10) + '.pdf';
-                link.click();
+                // Добавляем эффект загрузки
+                downloadBtn.textContent = 'Генерация...';
+                
+                // Создаем изображение сертификата
+                html2canvas(certificate, {
+                    scale: 2,
+                    logging: false,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: null,
+                    scrollX: 0,
+                    scrollY: 0,
+                    windowWidth: document.documentElement.offsetWidth,
+                    windowHeight: document.documentElement.offsetHeight
+                }).then(canvas => {
+                    // Восстанавливаем видимость элементов
+                    elementsToHide.forEach(el => el.style.visibility = 'visible');
+                    downloadBtn.textContent = 'Скачать сертификат (PNG)';
+                    
+                    // Создаем ссылку для скачивания
+                    const link = document.createElement('a');
+                    link.download = 'Келісімшарт' + currentDate.toISOString().slice(0,10) + '.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    
+                    // Показываем уведомление
+                    showNotification('Сертификат успешно скачан!');
+                }).catch(err => {
+                    console.error('Ошибка при создании изображения:', err);
+                    elementsToHide.forEach(el => el.style.visibility = 'visible');
+                    downloadBtn.textContent = 'Скачать сертификат (PNG)';
+                    showNotification('Ошибка при создании сертификата', true);
+                });
             });
+            
+            // Функция показа уведомления
+            function showNotification(message, isError = false) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = isError ? '#ff4444' : '#4CAF50';
+                notification.style.color = 'white';
+                notification.style.padding = '15px 30px';
+                notification.style.borderRadius = '50px';
+                notification.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                notification.style.zIndex = '1000';
+                notification.style.animation = 'fadeIn 0.3s ease-out';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'fadeOut 0.3s ease-out';
+                    setTimeout(() => document.body.removeChild(notification), 300);
+                }, 3000);
+            }
+            
+            // Первоначальная проверка
+            checkSignatures();
         });
     </script>
 </body>
